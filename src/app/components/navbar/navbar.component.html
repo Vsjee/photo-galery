@@ -1,1 +1,12 @@
-<p>navbar works!</p>
+<mat-toolbar color="primary">
+  <a routerLink="{{ routes.HOME }}" class="link__home">
+    <mat-icon>home</mat-icon>
+  </a>
+  <span class="example-spacer"></span>
+  <a routerLink="{{ routes.LOGIN }}" class="link">
+    <button mat-flat-button color="primary">Log in</button>
+  </a>
+  <a routerLink="{{ routes.SIGNIN }}" class="link">
+    <button mat-raised-button color="primary">Sign in</button>
+  </a>
+</mat-toolbar>

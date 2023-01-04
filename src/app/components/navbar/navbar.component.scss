@@ -1,0 +1,15 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.link {
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.link__home {
+  text-decoration: none;
+  display: grid;
+  place-content: center;
+  color: #fff;
+}
