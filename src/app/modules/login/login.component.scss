@@ -1,0 +1,23 @@
+section {
+  display: grid;
+  place-content: center;
+}
+
+.section__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+mat-form-field {
+  width: 500px;
+  transition: all 2s;
+}
+
+@media screen and (max-width: 620px) {
+  mat-form-field {
+    width: 300px;
+  }
+}

@@ -1,1 +1,26 @@
-<p>login works!</p>
+<section class="section">
+  <form [formGroup]="form" (ngSubmit)="logIn()" class="section__form">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your email</mat-label>
+      <input
+        matInput
+        placeholder="youremail@example.com"
+        formControlName="email"
+      />
+      <!-- <mat-error *ngIf="form.valid">{{ getErrorMessage() }}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input
+        matInput
+        placeholder="Your password"
+        formControlName="password"
+        type="password"
+      />
+      <!-- <mat-error *ngIf="form.valid">{{ getErrorMessage() }}</mat-error> -->
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Log In</button>
+  </form>
+</section>
