@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services';
+import { Router } from '@angular/router';
+import { privateRoutes } from 'src/app/models';
 
 @Component({
   selector: 'app-sign-in',
@@ -13,19 +16,21 @@ export class SignInComponent {
     confirmPassword: new FormControl('', [Validators.required]),
   });
 
+  constructor(private auth: AuthService, private router: Router) {}
+
   signIn() {
     if (this.form.valid) {
       const { email, password, confirmPassword } = this.form.getRawValue();
-      console.log(email, password, confirmPassword);
+      this.auth
+        .register(email, password)
+        .then(() =>
+          this.router.navigate([`/${privateRoutes.UPLOADIMAGESDASHBOARD}`])
+        )
+        .catch((err) => {
+          console.error(err);
+        });
     } else {
       this.form.markAllAsTouched();
     }
   }
-
-  // getErrorMessage() {
-  //   if (this.form.hasError('required')) {
-  //     return 'You must enter a value';
-  //   }
-  //   return this.form.hasError('email') ? 'Not a valid email' : '';
-  // }
 }
