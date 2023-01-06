@@ -55,8 +55,8 @@ export class NavbarComponent {
     });
   }
 
-  logout() {
-    this.auth.logout();
+  async logout() {
+    await this.auth.logout();
     this.route.navigate([`/${publicRoutes.HOME}`]);
   }
 }
