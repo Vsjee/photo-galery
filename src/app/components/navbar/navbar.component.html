@@ -1,12 +1,37 @@
 <mat-toolbar color="primary">
-  <a routerLink="{{ routes.HOME }}" class="link__home">
+  <a
+    routerLink="{{ publicRoutes.HOME }}"
+    class="link__home"
+    *ngIf="!showPrivateRoute"
+  >
     <mat-icon>home</mat-icon>
   </a>
+  <a
+    routerLink="{{ privateRoutes.UPLOADIMAGESDASHBOARD }}"
+    class="link__home"
+    *ngIf="showPrivateRoute"
+  >
+    <mat-icon>image_search</mat-icon>
+  </a>
+
   <span class="example-spacer"></span>
-  <a routerLink="{{ routes.LOGIN }}" class="link">
-    <button mat-flat-button color="primary">Log in</button>
-  </a>
-  <a routerLink="{{ routes.SIGNIN }}" class="link">
-    <button mat-raised-button color="primary">Sign in</button>
-  </a>
+
+  <div *ngIf="!showPrivateRoute">
+    <a routerLink="{{ publicRoutes.LOGIN }}" class="link">
+      <button mat-flat-button color="primary">Log in</button>
+    </a>
+    <a routerLink="{{ publicRoutes.SIGNIN }}" class="link">
+      <button mat-raised-button color="primary">Sign in</button>
+    </a>
+  </div>
+
+  <div *ngIf="showPrivateRoute">
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Profile</button>
+      <button mat-menu-item class="sfds" (click)="logout()">logout</button>
+    </mat-menu>
+  </div>
 </mat-toolbar>
