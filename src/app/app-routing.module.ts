@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthLoginGuard } from './guards';
 import { publicRoutes } from './models/routes';
 import { privateRoutes } from './models/routes';
+
+import { AuthGuard } from '@angular/fire/auth-guard';
 
 const routes: Routes = [
   { path: '', redirectTo: `${publicRoutes.HOME}`, pathMatch: 'full' },
@@ -22,7 +23,7 @@ const routes: Routes = [
     path: `${privateRoutes.UPLOADIMAGESDASHBOARD}`,
     loadChildren: () =>
       import('./modules').then((m) => m.UploadImagesDashboardModule),
-    canActivate: [AuthLoginGuard],
+    canActivate: [AuthGuard],
   },
 ];
 
