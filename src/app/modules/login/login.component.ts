@@ -23,7 +23,9 @@ export class LoginComponent {
       this.auth
         .logIn(email, password)
         .then(() =>
-          this.router.navigate([`/${privateRoutes.UPLOADIMAGESDASHBOARD}`])
+          this.router.navigate([
+            `/${privateRoutes.PRIVATE}/${privateRoutes.UPLOADIMAGESDASHBOARD}`,
+          ])
         )
         .catch((err) => {
           console.error(err);
