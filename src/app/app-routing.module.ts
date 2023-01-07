@@ -20,9 +20,8 @@ const routes: Routes = [
     loadChildren: () => import('./modules').then((m) => m.SignInModule),
   },
   {
-    path: `${privateRoutes.UPLOADIMAGESDASHBOARD}`,
-    loadChildren: () =>
-      import('./modules').then((m) => m.UploadImagesDashboardModule),
+    path: `${privateRoutes.PRIVATE}`,
+    loadChildren: () => import('./modules').then((m) => m.PrivateRoutingModule),
     canActivate: [AuthGuard],
   },
 ];
