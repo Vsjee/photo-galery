@@ -43,7 +43,11 @@ export class NavbarComponent {
         console.log('Route change detected');
       }
       if (event instanceof NavigationEnd) {
-        if (event.url === `/${privateRoutes.UPLOADIMAGESDASHBOARD}`) {
+        if (
+          event.url ===
+            `/${privateRoutes.PRIVATE}/${privateRoutes.UPLOADIMAGESDASHBOARD}` ||
+          event.url === `/${privateRoutes.PRIVATE}/${privateRoutes.PROFILE}`
+        ) {
           this.showPrivateRoute = true;
         } else {
           this.showPrivateRoute = false;
