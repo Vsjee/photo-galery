@@ -7,7 +7,9 @@
     <mat-icon>home</mat-icon>
   </a>
   <a
-    routerLink="{{ privateRoutes.UPLOADIMAGESDASHBOARD }}"
+    routerLink="{{ privateRoutes.PRIVATE }}/{{
+      privateRoutes.UPLOADIMAGESDASHBOARD
+    }}"
     class="link__home"
     *ngIf="showPrivateRoute"
   >
@@ -30,7 +32,9 @@
       <mat-icon>person</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>Profile</button>
+      <a routerLink="{{ privateRoutes.PRIVATE }}/{{ privateRoutes.PROFILE }}">
+        <button mat-menu-item>Profile</button>
+      </a>
       <button mat-menu-item class="sfds" (click)="logout()">logout</button>
     </mat-menu>
   </div>
