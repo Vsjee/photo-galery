@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../enviroments/enviroment';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideStorage, getStorage } from '@angular/fire/storage';
 import { AuthGuardModule } from '@angular/fire/auth-guard';
 
 @NgModule({
@@ -25,7 +25,7 @@ import { AuthGuardModule } from '@angular/fire/auth-guard';
     BrowserAnimationsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
     AuthGuardModule,
   ],
   providers: [],
