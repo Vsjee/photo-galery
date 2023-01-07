@@ -4,12 +4,15 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
+  authState,
 } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  currentActiveUser$ = authState(this.afAuth);
+
   constructor(private afAuth: Auth) {}
 
   async register(email: string | any, password: string | any) {
