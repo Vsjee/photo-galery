@@ -1,1 +1,5 @@
-<p>upload-images-dashboard works!</p>
+<input type="file" (change)="uploadImage($event)" />
+
+<section class="images">
+  <img [src]="image" class="img" *ngFor="let image of images" />
+</section>
