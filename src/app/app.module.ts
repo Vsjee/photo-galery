@@ -13,6 +13,8 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { AuthGuardModule } from '@angular/fire/auth-guard';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,8 +29,9 @@ import { AuthGuardModule } from '@angular/fire/auth-guard';
     provideAuth(() => getAuth()),
     provideStorage(() => getStorage()),
     AuthGuardModule,
+    AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
