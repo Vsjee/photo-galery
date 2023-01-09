@@ -7,7 +7,6 @@
         placeholder="youremail@example.com"
         formControlName="email"
       />
-      <!-- <mat-error *ngIf="form.valid">{{ getErrorMessage() }}</mat-error> -->
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -18,9 +17,20 @@
         formControlName="password"
         type="password"
       />
-      <!-- <mat-error *ngIf="form.valid">{{ getErrorMessage() }}</mat-error> -->
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">Log In</button>
+    <div class="btn__container">
+      <button mat-raised-button color="primary" type="submit">Log In</button>
+      <button mat-raised-button type="button" (click)="auth.googleAuth()">
+        <picture>
+          <img
+            src="../../../assets/google-color.svg"
+            alt="google-login"
+            width="25"
+            height="25"
+          />
+        </picture>
+      </button>
+    </div>
   </form>
 </section>
