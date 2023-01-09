@@ -23,14 +23,14 @@ export class SignInComponent {
   );
 
   constructor(
-    private auth: AuthService,
+    public auth: AuthService,
     private router: Router,
     private validation: ValidationService
   ) {}
 
   signIn() {
     if (this.form.valid) {
-      const { email, password, confirmPassword } = this.form.getRawValue();
+      const { email, password } = this.form.getRawValue();
       this.auth
         .register(email, password)
         .then(() =>
@@ -38,8 +38,8 @@ export class SignInComponent {
             `/${privateRoutes.PRIVATE}/${privateRoutes.UPLOADIMAGESDASHBOARD}`,
           ])
         )
-        .catch((err) => {
-          console.error(err);
+        .catch((error) => {
+          console.error(error);
         });
     } else {
       this.form.markAllAsTouched();
