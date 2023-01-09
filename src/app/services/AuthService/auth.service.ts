@@ -27,7 +27,7 @@ export class AuthService {
     return this.authLoginGoogle(new GoogleAuthProvider());
   }
 
-  authLoginGoogle(provider: any) {
+  authLoginGoogle(provider: GoogleAuthProvider) {
     return this.afGoogleAuth
       .signInWithPopup(provider)
       .then((res) => {
