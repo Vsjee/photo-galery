@@ -16,6 +16,15 @@ mat-form-field {
   transition: all 2s;
 }
 
+.btn__container {
+  display: flex;
+  gap: 1rem;
+
+  button {
+    width: 100px;
+  }
+}
+
 @media screen and (max-width: 620px) {
   mat-form-field {
     width: 300px;
