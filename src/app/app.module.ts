@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { environment } from '../enviroments/enviroment';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
@@ -23,6 +25,7 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
     AppRoutingModule,
     FooterComponent,
     NavbarComponent,
+    MatDialogModule,
     StoreModule.forRoot({}, {}),
     BrowserAnimationsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
