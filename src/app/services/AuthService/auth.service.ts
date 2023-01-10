@@ -6,10 +6,11 @@ import {
   signOut,
   authState,
   GoogleAuthProvider,
+  User,
 } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { privateRoutes } from 'src/app/models';
+import { privateRoutes, publicRoutes } from 'src/app/models';
 
 @Injectable({
   providedIn: 'root',
@@ -56,5 +57,17 @@ export class AuthService {
 
   logout() {
     return signOut(this.afAuth);
+  }
+
+  deleteAccount(user$: User) {
+    user$
+      .delete()
+      .then((res) => {
+        console.log('user deleted');
+        this.router.navigate([`${publicRoutes.HOME}`]);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 }
