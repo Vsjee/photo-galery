@@ -1,0 +1,42 @@
+.footer {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  border-top: 1px solid black;
+  padding: 5px 0 0 0;
+
+  .footer__made {
+    p {
+      margin: 0;
+    }
+  }
+
+  .footer__links {
+    display: inline-flex;
+    gap: 1rem;
+
+    .footer__links--item {
+      text-decoration: none;
+      color: black;
+      transition: 0.3s ease;
+
+      &:hover {
+        color: #6200ee;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .footer {
+    flex-direction: column;
+
+    .footer__made,
+    .footer__links {
+      text-align: center;
+      justify-content: center;
+    }
+  }
+}
