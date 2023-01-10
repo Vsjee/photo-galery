@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>DELETE ACCOUNT</h2>
+<mat-dialog-content>
+  <p>Are you sure you want to delete permanently your account?</p>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button
+      mat-raised-button
+      color="warn"
+      cdkFocusInitial
+      *ngIf="user$ | async as user"
+      (click)="this.auth.deleteAccount(user)"
+      mat-dialog-close
+    >
+      Yep do it
+    </button>
+  </mat-dialog-actions>
+</mat-dialog-content>
