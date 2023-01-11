@@ -1,27 +1,28 @@
+.upload {
+  margin: 3rem 3%;
+
+  input {
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+}
+
 .images {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-auto-rows: 22rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  grid-auto-flow: dense;
   gap: 1rem;
-  justify-content: center;
+  margin-bottom: 2rem;
+  padding: 0 5%;
 }
 
 .img {
-  width: 30%;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   transition: all 1s;
 }
-
-@media screen and (max-width: 650px) {
-  .img {
-    width: 45%;
-    height: 200px;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .img {
-    width: 90%;
-    height: 200px;
-  }
+button {
+  border: none;
 }
