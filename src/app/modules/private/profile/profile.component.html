@@ -1,2 +1,12 @@
-<p *ngIf="user$ | async as user">{{ user.email }}</p>
-<button mat-button color="warn" (click)="openDialog()">Delete Account</button>
+<section class="profile">
+  <h1>Profile</h1>
+  <article class="profile__info">
+    <div class="profile__info__second">
+      <h3>Account info</h3>
+      <p *ngIf="user$ | async as user">Email: {{ user.email }}</p>
+    </div>
+    <button mat-raised-button color="warn" (click)="openDialog()">
+      Delete Account
+    </button>
+  </article>
+</section>
