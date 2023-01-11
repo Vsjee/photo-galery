@@ -1,5 +1,9 @@
-<input type="file" (change)="uploadImage($event)" />
+<section class="upload">
+  <input type="file" (change)="uploadImage($event)" />
+</section>
 
 <section class="images">
-  <img [src]="image" class="img" *ngFor="let image of images" />
+  <button *ngFor="let image of images" (click)="openDialog(image)">
+    <img [src]="image" class="img" />
+  </button>
 </section>
