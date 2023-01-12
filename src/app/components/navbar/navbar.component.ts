@@ -46,7 +46,8 @@ export class NavbarComponent {
         if (
           event.url ===
             `/${privateRoutes.PRIVATE}/${privateRoutes.UPLOADIMAGESDASHBOARD}` ||
-          event.url === `/${privateRoutes.PRIVATE}/${privateRoutes.PROFILE}`
+          event.url === `/${privateRoutes.PRIVATE}/${privateRoutes.PROFILE}` ||
+          event.url === `/${privateRoutes.PRIVATE}/${privateRoutes.FAVORITES}`
         ) {
           this.showPrivateRoute = true;
         } else {
