@@ -8,4 +8,5 @@ export const privateRoutes = {
   PRIVATE: 'private',
   UPLOADIMAGESDASHBOARD: 'upload-images-dashboard',
   PROFILE: 'profile',
+  FAVORITES: 'favorites',
 };
