@@ -6,9 +6,6 @@ import {
   listAll,
   getDownloadURL,
 } from '@angular/fire/storage';
-import { MatDialog } from '@angular/material/dialog';
-import { ShareUrlsService } from 'src/app/services';
-import { ImageDialogComponent } from './components';
 
 @Component({
   selector: 'app-upload-images-dashboard',
@@ -18,11 +15,7 @@ import { ImageDialogComponent } from './components';
 export class UploadImagesDashboardComponent {
   images: string[];
 
-  constructor(
-    private storage: Storage,
-    private dialog: MatDialog,
-    private shareUrl: ShareUrlsService
-  ) {
+  constructor(private storage: Storage) {
     this.images = [];
   }
 
@@ -55,10 +48,5 @@ export class UploadImagesDashboardComponent {
         }
       })
       .catch((error) => console.error(error));
-  }
-
-  openDialog(imageUrl: string) {
-    this.shareUrl.setInformation(imageUrl);
-    this.dialog.open(ImageDialogComponent);
   }
 }
