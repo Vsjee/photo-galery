@@ -1,0 +1,19 @@
+<article class="container__images">
+  <button
+    class="favorite--btn"
+    *ngIf="!display"
+    (click)="addFavoriteItem(image)"
+  >
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button
+    class="favorite--btn"
+    *ngIf="display"
+    (click)="removeFavoriteItem(image)"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  <button (click)="openDialog(image)">
+    <img [src]="image" class="img" />
+  </button>
+</article>

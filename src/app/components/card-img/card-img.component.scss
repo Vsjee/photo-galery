@@ -1,0 +1,40 @@
+.container__images {
+  display: grid;
+  grid-auto-rows: 22rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  grid-auto-flow: dense;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 0 5%;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 1s;
+}
+button {
+  border: none;
+  cursor: pointer;
+}
+
+.favorite--btn {
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  padding: 0.2rem;
+  border: 2px solid black;
+  background-color: #fff;
+  border-radius: 20px;
+  z-index: 1;
+
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    border: 2px solid #6200ee;
+    color: #6200ee;
+  }
+}
