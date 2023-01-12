@@ -1,3 +1,7 @@
-<section>
-  <h1>Favorites</h1>
+<h1 class="title">Favorites</h1>
+<section class="container">
+  <app-card-img
+    [image]="image.favoriteItem"
+    *ngFor="let image of favoriteList"
+  ></app-card-img>
 </section>

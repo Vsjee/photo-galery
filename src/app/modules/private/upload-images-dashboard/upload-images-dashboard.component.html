@@ -2,8 +2,6 @@
   <input type="file" (change)="uploadImage($event)" />
 </section>
 
-<section class="images">
-  <button *ngFor="let image of images" (click)="openDialog(image)">
-    <img [src]="image" class="img" />
-  </button>
+<section class="container">
+  <app-card-img [image]="image" *ngFor="let image of images"></app-card-img>
 </section>
