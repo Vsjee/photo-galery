@@ -63,11 +63,14 @@ export class AuthService {
     user$
       .delete()
       .then((res) => {
-        console.log('user deleted');
+        alert('user was sucessfully deleted');
         this.router.navigate([`${publicRoutes.HOME}`]);
       })
       .catch((error) => {
         console.error(error);
+        alert(
+          'Something went wrong, please logout then go back and try again.'
+        );
       });
   }
 }
