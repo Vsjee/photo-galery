@@ -7,7 +7,12 @@ import { Store } from '@ngrx/store';
 import { FavoriteInfo, privateRoutes } from 'src/app/models';
 import { ImageDialogComponent } from 'src/app/modules';
 import { ShareUrlsService } from 'src/app/services';
-import { addFavoriteItem, AppState, removeFavoriteItem } from 'src/app/state';
+import {
+  addFavoriteItem,
+  AppState,
+  removeFavoriteItem,
+  selectFavoriteList,
+} from 'src/app/state';
 
 @Component({
   standalone: true,
@@ -19,6 +24,7 @@ import { addFavoriteItem, AppState, removeFavoriteItem } from 'src/app/state';
 export class CardImgComponent {
   @Input() image: string = '';
   display: boolean = false;
+  favorites: FavoriteInfo[] = [];
 
   constructor(
     private store: Store<AppState>,
@@ -39,10 +45,16 @@ export class CardImgComponent {
   }
 
   addFavoriteItem(image: string) {
-    let addItem: FavoriteInfo = {
-      favoriteItem: image,
-    };
-    this.store.dispatch(addFavoriteItem({ favorite: addItem }));
+    this.getFavoriteList();
+
+    let find = this.favorites.find((item) => item.favoriteItem === image);
+
+    if (!find) {
+      let addItem: FavoriteInfo = {
+        favoriteItem: image,
+      };
+      this.store.dispatch(addFavoriteItem({ favorite: addItem }));
+    }
   }
 
   removeFavoriteItem(image: string) {
@@ -50,6 +62,12 @@ export class CardImgComponent {
       favoriteItem: image,
     };
     this.store.dispatch(removeFavoriteItem({ favorite: removeItem }));
+  }
+
+  getFavoriteList() {
+    this.store.select(selectFavoriteList).subscribe((favorites) => {
+      this.favorites = favorites;
+    });
   }
 
   openDialog(image: string) {
