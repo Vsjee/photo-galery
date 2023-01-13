@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+
+import { MatDialog } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+
 import { FavoriteInfo, privateRoutes } from 'src/app/models';
 import { ImageDialogComponent } from 'src/app/modules';
 import { ShareUrlsService } from 'src/app/services';
@@ -25,19 +28,19 @@ export class CardImgComponent {
   @Input() image: string = '';
   display: boolean = false;
   favorites: FavoriteInfo[] = [];
+  currentUrl = this.router.url;
+  favoritePage = `/${privateRoutes.PRIVATE}/${privateRoutes.FAVORITES}`;
 
   constructor(
     private store: Store<AppState>,
     private shareUrl: ShareUrlsService,
     private dialog: MatDialog,
+    private _snackBar: MatSnackBar,
     private router: Router
   ) {}
 
   actions() {
-    const currentUrl = this.router.url;
-    const favoritePage = `/${privateRoutes.PRIVATE}/${privateRoutes.FAVORITES}`;
-
-    if (currentUrl !== favoritePage) {
+    if (this.currentUrl !== this.favoritePage) {
       this.display = false;
     } else {
       this.display = true;
@@ -46,7 +49,6 @@ export class CardImgComponent {
 
   addFavoriteItem(image: string) {
     this.getFavoriteList();
-
     let find = this.favorites.find((item) => item.favoriteItem === image);
 
     if (!find) {
@@ -54,6 +56,9 @@ export class CardImgComponent {
         favoriteItem: image,
       };
       this.store.dispatch(addFavoriteItem({ favorite: addItem }));
+      this.openSnackBar('Item was succesfully added.');
+    } else {
+      this.openSnackBar('Item already exist in your favorites list.');
     }
   }
 
@@ -62,6 +67,7 @@ export class CardImgComponent {
       favoriteItem: image,
     };
     this.store.dispatch(removeFavoriteItem({ favorite: removeItem }));
+    this.openSnackBar('Item was succesfully removed.');
   }
 
   getFavoriteList() {
@@ -73,6 +79,15 @@ export class CardImgComponent {
   openDialog(image: string) {
     this.shareUrl.setInformation(image);
     this.dialog.open(ImageDialogComponent);
+  }
+
+  openSnackBar(message: string) {
+    let snackConfig = new MatSnackBarConfig();
+
+    snackConfig.horizontalPosition = 'end';
+    snackConfig.duration = 1800;
+
+    this._snackBar.open(message, 'X', snackConfig);
   }
 
   ngOnInit() {
