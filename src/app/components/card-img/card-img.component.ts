@@ -30,6 +30,9 @@ export class CardImgComponent {
   favorites: FavoriteInfo[] = [];
   currentUrl = this.router.url;
   favoritePage = `/${privateRoutes.PRIVATE}/${privateRoutes.FAVORITES}`;
+  isLoading: boolean = true;
+  loader: string =
+    'https://media.tenor.com/images/8d483e909ec3618f521e9700d6fbf2e1/tenor.gif';
 
   constructor(
     private store: Store<AppState>,
@@ -88,6 +91,10 @@ export class CardImgComponent {
     snackConfig.duration = 1800;
 
     this._snackBar.open(message, 'X', snackConfig);
+  }
+
+  hideLoader() {
+    this.isLoading = false;
   }
 
   ngOnInit() {
