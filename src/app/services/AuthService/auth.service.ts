@@ -31,7 +31,7 @@ export class AuthService {
   authLoginGoogle(provider: GoogleAuthProvider) {
     return this.afGoogleAuth
       .signInWithPopup(provider)
-      .then((res) => {
+      .then(() => {
         console.log('success');
         this.router.navigate([
           `/${privateRoutes.PRIVATE}/${privateRoutes.UPLOADIMAGESDASHBOARD}`,
@@ -62,7 +62,7 @@ export class AuthService {
   deleteAccount(user$: User) {
     user$
       .delete()
-      .then((res) => {
+      .then(() => {
         alert('user was sucessfully deleted');
         this.router.navigate([`${publicRoutes.HOME}`]);
       })
