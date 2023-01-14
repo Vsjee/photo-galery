@@ -52,7 +52,9 @@ export class CardImgComponent {
 
   addFavoriteItem(image: string) {
     this.getFavoriteList();
-    let find = this.favorites.find((item) => item.favoriteItem === image);
+    let find = this.favorites.find(
+      (item: FavoriteInfo) => item.favoriteItem === image
+    );
 
     if (!find) {
       let addItem: FavoriteInfo = {
