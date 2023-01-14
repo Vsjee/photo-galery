@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -19,7 +19,7 @@ import {
 
 @Component({
   standalone: true,
-  imports: [CommonModule, MatIconModule],
+  imports: [CommonModule, MatIconModule, NgOptimizedImage],
   selector: 'app-card-img',
   templateUrl: './card-img.component.html',
   styleUrls: ['./card-img.component.scss'],
