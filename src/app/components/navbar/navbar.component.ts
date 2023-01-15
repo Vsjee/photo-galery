@@ -16,6 +16,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { privateRoutes, publicRoutes } from 'src/app/models';
 import { AuthService } from 'src/app/services';
 import { CommonModule } from '@angular/common';
+import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 
 @Component({
   standalone: true,
@@ -25,6 +26,7 @@ import { CommonModule } from '@angular/common';
     MatIconModule,
     MatButtonModule,
     AppRoutingModule,
+    NgxHideOnScrollModule,
     CommonModule,
   ],
   selector: 'app-navbar',

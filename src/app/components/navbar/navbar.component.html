@@ -1,4 +1,8 @@
-<mat-toolbar color="primary">
+<mat-toolbar
+  color="primary"
+  ngxHideOnScroll
+  [classNameWhenHidden]="'nav__hidden'"
+>
   <a
     routerLink="{{ publicRoutes.HOME }}"
     class="link__home"
