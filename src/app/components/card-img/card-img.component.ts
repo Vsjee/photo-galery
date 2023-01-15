@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 import { FavoriteInfo, privateRoutes } from 'src/app/models';
-import { ImageDialogComponent } from 'src/app/modules';
+import { ImageDialogComponent } from '../image-dialog/image-dialog.component';
 import { ShareUrlsService } from 'src/app/services';
 import {
   addFavoriteItem,

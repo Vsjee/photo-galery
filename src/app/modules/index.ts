@@ -6,7 +6,5 @@ export * from './private/private-entry';
 export * from './private/profile/components/delete-account-dialog/delete-account-dialog.component';
 export * from './private/profile/components';
 export * from './private/profile';
-export * from './private/upload-images-dashboard/components/image-dialog/image-dialog.component';
-export * from './private/upload-images-dashboard/components';
 export * from './private/upload-images-dashboard';
 export * from './sign-in';
